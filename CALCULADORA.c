@@ -167,7 +167,7 @@ scanf ("%c",&seguir);
 	
 }
 void raiz(){
-	
+	//OPERACION PARA RAIZ CUADRADA
 	char seguir;
 	do{
 	
@@ -184,7 +184,6 @@ scanf ("%c",&seguir);
 
 	 return MENU();
 }
-	
 	
 	
 
