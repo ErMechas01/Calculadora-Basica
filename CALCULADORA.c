@@ -11,7 +11,7 @@ void sumar();
 void restar();
 void multiplicar();
 void dividir();
-void hora();
+void raiz();
 
 
 int main (){
@@ -37,7 +37,7 @@ void MENU(){
 		int p;
 		system ("cls");
 	//MENU DE LA CALCULADORA
-	 printf("1-Sumar.\n2-Restar. \n3-Multiplicar. \n4-Dividir. \n5-Hora.\n6-SALIR.\n\n");
+	 printf("1-Sumar.\n2-Restar. \n3-Multiplicar. \n4-Dividir. \n5-Raiz Cuadrada.\n6-SALIR.\n\n");
 	 printf ("Seleccione una OPERACION: ",p);
 	 
 	 scanf ("%i",&p);
@@ -50,7 +50,7 @@ void MENU(){
 			case 2: restar();break;
 			case 3: multiplicar();break;
 			case 4: dividir();break;
-			case 5: hora();break;
+			case 5: raiz();break;
 			case 6: SALIR();break;
 			default: printf("La opcion elegida es incorrecta.\n\n");
 			
@@ -166,18 +166,28 @@ scanf ("%c",&seguir);
 	return MENU();
 	
 }
-void hora(){
+void raiz(){
 	
-	int fecha,p;
+	char seguir;
+	do{
 	
-	printf("\n1-HORA.\n2-Minutos.\n3-Segundos.\n");
-	printf("Seleccione una opcion:");
-	scanf ("%i",p);
-	
-	
-	
-	
+	float n;
+    printf("\nNumero: ");
+    scanf("%f",&n);
+    n = sqrt(n);
+    printf("Raiz cuadrada: %f\n\n",n);
+    
+    printf ("Quieres hacer otra operacion(S/N): ");
+	fflush( stdin );
+scanf ("%c",&seguir);
+}while (seguir != 'n');
+
+	 return MENU();
 }
+	
+	
+	
+
 
 
 
