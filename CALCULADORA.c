@@ -15,7 +15,7 @@ void multiplicar();
 void dividir();
 void raiz();
 void pares();
-
+void tablas_de_multiplicar();
 
 int main (){
 	
@@ -40,7 +40,7 @@ void MENU(){
 		fflush(stdin);
 		system ("cls");
 	//MENU DE LA CALCULADORA
-		 printf("1-SUMAR.\n2-RESTAR. \n3-MULTIPLICAR. \n4-DIVIDIR. \n5-RAIZ CUADRADA.\n6-PARES E IMPARES. \n7-SALIR \n\n");
+		 printf("1-SUMAR.\n2-RESTAR. \n3-MULTIPLICAR. \n4-DIVIDIR. \n5-RAIZ CUADRADA.\n6-PARES E IMPARES. \n7-TABLAS DE MULTIPLICAR \n8-SALIR \n\n");
 		 printf ("Seleccione una OPERACION: ",p);
 		 scanf ("%i",&p);
 
@@ -52,7 +52,8 @@ void MENU(){
 			case 4: dividir();break;
 			case 5: raiz();break;
 			case 6:	pares();break;
-			case 7: SALIR();break;
+			case 7: tablas_de_multiplicar();
+			case 8: SALIR();break;
 			default: printf("La opcion elegida es INCORRECTA.\n\n");
 		Sleep (1000);
 		return MENU();
@@ -178,7 +179,7 @@ void comprobacion(){
 	char seguir,p;
 	do{
 	
-	printf ("Quieres hacer otra operacion(s/n): ");
+	printf ("\nQuieres hacer otra operacion(s/n): ");
 		fflush( stdin );
 		scanf ("%c",&seguir);
 	
@@ -217,6 +218,31 @@ void pares(){
 	
 	
 	return 0;
+	
+}
+
+void tablas_de_multiplicar(){
+	int x,r, i;
+	char seguir;
+	
+		do{
+		
+		
+		
+		printf ("\nIntroduce la tabla de multiplicar que quieras saber: ");
+			scanf ("%i",&x);
+		
+		for (i = 0; i < 10; i++ ){
+			
+			r = x * i;
+			
+			printf ("\n%i * %i = %i\n",x,i,r);
+			
+		}
+		
+	comprobacion();
+		
+	}while(seguir != 'n');
 	
 }
 	
