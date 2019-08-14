@@ -22,7 +22,7 @@ int main (){
 	
 	char command[50];
 	
-	strcpy( command, "title CALCULADORA ");
+	strcpy( command, "title CALCULADORA BASICA ");
 	system(command);
 	 
 	MENU();
@@ -37,6 +37,7 @@ void SALIR(){
 void MENU(){
 	char seguir;
 	int p;
+		fflush(stdin);
 		system ("cls");
 	//MENU DE LA CALCULADORA
 		 printf("1-SUMAR.\n2-RESTAR. \n3-MULTIPLICAR. \n4-DIVIDIR. \n5-RAIZ CUADRADA.\n6-PARES E IMPARES. \n7-SALIR \n\n");
@@ -52,7 +53,7 @@ void MENU(){
 			case 5: raiz();break;
 			case 6:	pares();break;
 			case 7: SALIR();break;
-			default: printf("La opcion elegida es incorrecta.\n\n");
+			default: printf("La opcion elegida es INCORRECTA.\n\n");
 		Sleep (1000);
 		return MENU();
 				}
@@ -74,13 +75,13 @@ void sumar(){
 	
 	z = x + y;
 	
-	printf ("%.2f + %.2f = %.2f\n\n",x,y,z);
+	printf ("\n%.2f + %.2f = %.2f\n\n",x,y,z);
 		
 	comprobacion();
 	
 	}while (seguir != 'n');
 
-return MENU();
+return 0;
 	
 }
 void restar(){	
@@ -97,13 +98,13 @@ void restar(){
 	
 	z = x - y;
 	
-	printf ("%.2f - %.2f = %.2f\n\n",x,y,z);
+	printf ("\n%.2f - %.2f = %.2f\n\n",x,y,z);
 	
 	comprobacion();
 	
 	}while (seguir != 'n');
 
-return MENU();
+return 0;
 	
 }
 void multiplicar(){	
@@ -113,20 +114,20 @@ void multiplicar(){
 	
 	do{
 	printf("\n\tMULTIPLICAR");
-	printf ("\n Introduce un numero: ",x);
+	printf ("\nIntroduce un numero: ",x);
 		scanf("%f",&x);
 	printf ("Introduce un numero: ",y);
 		scanf("%f",&y);
 	
 	z = x * y;
 	
-	printf ("%.2f * %.2f = %.2f\n\n",x,y,z);
+	printf ("\n%.2f * %.2f = %.2f\n\n",x,y,z);
 	
 	comprobacion();
 	
 	}while (seguir != 'n');
 
-return MENU();
+return 0;
 	
 }
 void dividir(){
@@ -143,13 +144,13 @@ void dividir(){
 	
 	z = x / y;
 	
-	printf ("%.2f / %.2f = %.2f\n\n",x,y,z);
+	printf ("\n%.2f / %.2f = %.2f\n\n",x,y,z);
 	
 	comprobacion();
 	
 	}while (seguir != 'n');
 	
-return MENU();
+return 0;
 	
 }
 void raiz(){
@@ -162,13 +163,13 @@ void raiz(){
     printf("\nNumero: ");
 		scanf("%f",&n);
     	n = sqrt(n);
-    printf("Raiz cuadrada: %f\n\n",n);
+    printf("\nRaiz cuadrada: %f\n\n",n);
     
 	comprobacion();
 	
 	}while (seguir != 'n');
 
-return MENU();
+return 0;
 
 }
 void comprobacion(){ 
@@ -194,24 +195,28 @@ return MENU();
 }
 void pares(){
 	
+	char seguir;
+	do{
+	
 		int x,y;
 	printf("\n\tNUMEROS PARES E IMPARES");
-	printf ("Introduce un numero para saber si es PAR o IMPAR: ");
+	printf ("\nIntroduce un numero para saber si es PAR o IMPAR: ");
 	scanf ("%i",&x);
 	
 	y = x % 2;
 	
 	
 	if (y == 0){
-		printf ("El numero introducido es PAR, %i. \n\n",y);
+		printf ("\nEl numero introducido es PAR, %i. \n\n",y);
 	}
 	else {
-		printf ("El numero introducido es IMPAR, %i. \n\n",y);
+		printf ("\nEl numero introducido es IMPAR, %i. \n\n",y);
 	}
-	
 	comprobacion();
+	}while(seguir != 'n');	
 	
-	return MENU();
+	
+	return 0;
 	
 }
 	
