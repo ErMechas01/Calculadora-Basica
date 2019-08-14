@@ -155,8 +155,8 @@ void raiz(){
 	
 	float n;
     printf("\nNumero: ");
-    scanf("%f",&n);
-    n = sqrt(n);
+		scanf("%f",&n);
+    	n = sqrt(n);
     printf("Raiz cuadrada: %f\n\n",n);
     
 	comprobacion();
