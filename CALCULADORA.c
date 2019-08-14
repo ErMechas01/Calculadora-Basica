@@ -8,12 +8,14 @@
 
 void MENU();
 void SALIR();
+void comprobacion();
 void sumar();
 void restar();
 void multiplicar();
 void dividir();
 void raiz();
-void comprobacion();
+void pares();
+
 
 int main (){
 	
@@ -37,7 +39,7 @@ void MENU(){
 	int p;
 		system ("cls");
 	//MENU DE LA CALCULADORA
-		 printf("1-Sumar.\n2-Restar. \n3-Multiplicar. \n4-Dividir. \n5-Raiz Cuadrada.\n6-SALIR.\n\n");
+		 printf("1-SUMAR.\n2-RESTAR. \n3-MULTIPLICAR. \n4-DIVIDIR. \n5-RAIZ CUADRADA.\n6-PARES E IMPARES. \n7-SALIR \n\n");
 		 printf ("Seleccione una OPERACION: ",p);
 		 scanf ("%i",&p);
 
@@ -48,7 +50,8 @@ void MENU(){
 			case 3: multiplicar();break;
 			case 4: dividir();break;
 			case 5: raiz();break;
-			case 6: SALIR();break;
+			case 6:	pares();break;
+			case 7: SALIR();break;
 			default: printf("La opcion elegida es incorrecta.\n\n");
 		Sleep (1000);
 		return MENU();
@@ -63,7 +66,8 @@ void sumar(){
 	
 	do{
 	
-	printf ("\n Introduce un numero: ",x);
+	printf ("\n\tSUMA");
+	printf ("\nIntroduce un numero: ",x);
 		scanf("%f",&x);
 	printf ("Introduce un numero: ",y);
 		scanf("%f",&y);
@@ -85,8 +89,8 @@ void restar(){
 	float x,y,z;
 	
 	do{
-	
-	printf ("\n Introduce un numero: ",x);
+	printf("\n\tRESTA");
+	printf ("\nIntroduce un numero: ",x);
 		scanf("%f",&x);
 	printf ("Introduce un numero: ",y);
 		scanf("%f",&y);
@@ -108,7 +112,7 @@ void multiplicar(){
 	float x,y,z;
 	
 	do{
-	
+	printf("\n\tMULTIPLICAR");
 	printf ("\n Introduce un numero: ",x);
 		scanf("%f",&x);
 	printf ("Introduce un numero: ",y);
@@ -131,8 +135,8 @@ void dividir(){
 	float x,y,z;
 	
 	do{
-	
-	printf ("\n Introduce un numero: ",x);
+	printf("\n\tDIVIDIR");
+	printf ("\nIntroduce un numero: ",x);
 		scanf("%f",&x);
 	printf ("Introduce un numero: ",y);
 		scanf("%f",&y);
@@ -154,6 +158,7 @@ void raiz(){
 	do{
 	
 	float n;
+	printf("\n\tRAIZ CUADRADA");
     printf("\nNumero: ");
 		scanf("%f",&n);
     	n = sqrt(n);
@@ -166,28 +171,49 @@ void raiz(){
 return MENU();
 
 }
-void comprobacion(){
+void comprobacion(){ 
 
-	
-	char seguir;
+	// COMPROBACION PARA SEGUIR CON LA OPERACION
+	char seguir,p;
 	do{
 	
-	printf ("Quieres hacer otra operacion(S/N): ");
+	printf ("Quieres hacer otra operacion(s/n): ");
 		fflush( stdin );
 		scanf ("%c",&seguir);
 	
-	if(seguir == 'S' || seguir == 's'){
+	if(seguir == 's'){
 		
-		return sumar();
+	return 0;
 		
 	}
 	
-}while (seguir != 'n');
-
+}while (seguir != 'n' );
+Sleep (100);
 return MENU();
 	
 }
+void pares(){
 	
+		int x,y;
+	printf("\n\tNUMEROS PARES E IMPARES");
+	printf ("Introduce un numero para saber si es PAR o IMPAR: ");
+	scanf ("%i",&x);
+	
+	y = x % 2;
+	
+	
+	if (y == 0){
+		printf ("El numero introducido es PAR, %i. \n\n",y);
+	}
+	else {
+		printf ("El numero introducido es IMPAR, %i. \n\n",y);
+	}
+	
+	comprobacion();
+	
+	return MENU();
+	
+}
 	
 
 
