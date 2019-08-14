@@ -232,7 +232,7 @@ void tablas_de_multiplicar(){
 		printf ("\nIntroduce la tabla de multiplicar que quieras saber: ");
 			scanf ("%i",&x);
 		
-		for (i = 0; i < 10; i++ ){
+		for (i = 0; i < 11; i++ ){
 			
 			r = x * i;
 			
