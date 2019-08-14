@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <windows.h>
 
 
 
@@ -12,7 +13,7 @@ void restar();
 void multiplicar();
 void dividir();
 void raiz();
-
+void comprobacion();
 
 int main (){
 	
@@ -24,7 +25,6 @@ int main (){
 	 
 	MENU();
 
-	
 	system ("pause");
 	return 0;
 }
@@ -33,17 +33,14 @@ void SALIR(){
 	exit (-1);	
 }
 void MENU(){
-		char seguir;
-		int p;
+	char seguir;
+	int p;
 		system ("cls");
 	//MENU DE LA CALCULADORA
-	 printf("1-Sumar.\n2-Restar. \n3-Multiplicar. \n4-Dividir. \n5-Raiz Cuadrada.\n6-SALIR.\n\n");
-	 printf ("Seleccione una OPERACION: ",p);
-	 
-	 scanf ("%i",&p);
+		 printf("1-Sumar.\n2-Restar. \n3-Multiplicar. \n4-Dividir. \n5-Raiz Cuadrada.\n6-SALIR.\n\n");
+		 printf ("Seleccione una OPERACION: ",p);
+		 scanf ("%i",&p);
 
-	
-	
 	//MENU DE LA CALCULADORA
 		switch(p){
 			case 1: sumar();break;
@@ -53,36 +50,33 @@ void MENU(){
 			case 5: raiz();break;
 			case 6: SALIR();break;
 			default: printf("La opcion elegida es incorrecta.\n\n");
-			
-		}
+		Sleep (1000);
+		return MENU();
+				}
 	
 	
 }
 void sumar(){	
 //OPERACION PARA SUMAR
-	char seguir;
+	char seguir,f;
 	float x,y,z;
 	
 	do{
 	
 	printf ("\n Introduce un numero: ",x);
-	scanf("%f",&x);
+		scanf("%f",&x);
 	printf ("Introduce un numero: ",y);
-	scanf("%f",&y);
+		scanf("%f",&y);
 	
 	z = x + y;
 	
 	printf ("%.2f + %.2f = %.2f\n\n",x,y,z);
+		
+	comprobacion();
 	
-	printf ("Quieres hacer otra operacion(S/N): ");
-	fflush( stdin );
-scanf ("%c",&seguir);
-}while (seguir != 'n');
+	}while (seguir != 'n');
 
-
-
-	
-	return MENU();
+return MENU();
 	
 }
 void restar(){	
@@ -93,23 +87,19 @@ void restar(){
 	do{
 	
 	printf ("\n Introduce un numero: ",x);
-	scanf("%f",&x);
+		scanf("%f",&x);
 	printf ("Introduce un numero: ",y);
-	scanf("%f",&y);
+		scanf("%f",&y);
 	
 	z = x - y;
 	
 	printf ("%.2f - %.2f = %.2f\n\n",x,y,z);
 	
-	printf ("Quieres hacer otra operacion(S/N): ");
-	fflush( stdin );
-scanf ("%c",&seguir);
-}while (seguir != 'n');
-
-
-
+	comprobacion();
 	
-	return MENU();
+	}while (seguir != 'n');
+
+return MENU();
 	
 }
 void multiplicar(){	
@@ -120,23 +110,19 @@ void multiplicar(){
 	do{
 	
 	printf ("\n Introduce un numero: ",x);
-	scanf("%f",&x);
+		scanf("%f",&x);
 	printf ("Introduce un numero: ",y);
-	scanf("%f",&y);
+		scanf("%f",&y);
 	
 	z = x * y;
 	
 	printf ("%.2f * %.2f = %.2f\n\n",x,y,z);
 	
-	printf ("Quieres hacer otra operacion(S/N): ");
-	fflush( stdin );
-scanf ("%c",&seguir);
-}while (seguir != 'n');
-
-
-
+	comprobacion();
 	
-	return MENU();
+	}while (seguir != 'n');
+
+return MENU();
 	
 }
 void dividir(){
@@ -147,23 +133,19 @@ void dividir(){
 	do{
 	
 	printf ("\n Introduce un numero: ",x);
-	scanf("%f",&x);
+		scanf("%f",&x);
 	printf ("Introduce un numero: ",y);
-	scanf("%f",&y);
+		scanf("%f",&y);
 	
 	z = x / y;
 	
 	printf ("%.2f / %.2f = %.2f\n\n",x,y,z);
 	
-	printf ("Quieres hacer otra operacion(S/N): ");
-	fflush( stdin );
-scanf ("%c",&seguir);
-}while (seguir != 'n');
-
-
-
+	comprobacion();
 	
-	return MENU();
+	}while (seguir != 'n');
+	
+return MENU();
 	
 }
 void raiz(){
@@ -177,12 +159,33 @@ void raiz(){
     n = sqrt(n);
     printf("Raiz cuadrada: %f\n\n",n);
     
-    printf ("Quieres hacer otra operacion(S/N): ");
-	fflush( stdin );
-scanf ("%c",&seguir);
+	comprobacion();
+	
+	}while (seguir != 'n');
+
+return MENU();
+
+}
+void comprobacion(){
+
+	
+	char seguir;
+	do{
+	
+	printf ("Quieres hacer otra operacion(S/N): ");
+		fflush( stdin );
+		scanf ("%c",&seguir);
+	
+	if(seguir == 'S' || seguir == 's'){
+		
+		return sumar();
+		
+	}
+	
 }while (seguir != 'n');
 
-	 return MENU();
+return MENU();
+	
 }
 	
 	
