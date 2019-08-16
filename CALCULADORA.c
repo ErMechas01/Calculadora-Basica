@@ -66,7 +66,7 @@ void MENU_BASICA(){
 		
 	//MENU DE LA CALCULADORA
 	
-		 printf("1-SUMAR.\n2-RESTAR. \n3-MULTIPLICAR. \n4-DIVIDIR. \n5-RAIZ CUADRADA.\n6-PARES E IMPARES. \n7-TABLAS DE MULTIPLICAR. \n8-VOVLER. \n9-SALIR. \n\n");
+		 printf("1-SUMAR.\n2-RESTAR. \n3-MULTIPLICAR. \n4-DIVIDIR. \n5-RAIZ CUADRADA.\n6-PARES E IMPARES. \n7-VOVLER. \n8-SALIR. \n\n");
 		 printf ("Seleccione una OPERACION: ");
 			 scanf ("%i",&p);
 
@@ -79,9 +79,8 @@ void MENU_BASICA(){
 			case 4: dividir();break;
 			case 5: raiz();break;
 			case 6:	pares();break;
-			case 7: tablas_de_multiplicar();break;
-			case 8: MENU_PRINCIPAL();break;
-			case 9: SALIR();break;
+			case 7: MENU_PRINCIPAL();break;
+			case 8: SALIR();break;
 			default: printf("La opcion elegida es INCORRECTA.\n\n");
 		}
 		Sleep (1000);
