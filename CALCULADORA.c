@@ -19,6 +19,9 @@ void area_triangulo();
 void area_rectangulo();
 void MENU_PRINCIPAL();
 void MENU_APUNTES();
+void comprobacion_apuntes();
+void console();
+
 
 
 int main (){
@@ -27,7 +30,8 @@ int main (){
 	
 	strcpy( command, "title CALCULADORA BASICA ");
 	system(command);
-	 
+	
+	console();
 	MENU_PRINCIPAL();
 
 	system ("pause");
@@ -39,11 +43,12 @@ void SALIR(){
 }
 void MENU_PRINCIPAL(){
 	
+	//MENU PRINCIPAL
 	int p;
 	
 	system ("cls");
 	
-	printf("1-MENU DE OPERACIONES BASICAS. \n2-MENU DE AREAS. \n3-APUNTES. \n4-SALIR.\n\n");
+	printf("(1) MENU DE OPERACIONES BASICAS. \n(2) MENU DE AREAS. \n(3) MENU DE APUNTES. \n(4) SALIR.\n\n");
 	printf ("Seleccione una OPERACION: ");
 		scanf("%i",&p);
 	
@@ -66,7 +71,7 @@ void MENU_BASICA(){
 		
 	//MENU DE LA CALCULADORA
 	
-		 printf("1-SUMAR.\n2-RESTAR. \n3-MULTIPLICAR. \n4-DIVIDIR. \n5-RAIZ CUADRADA.\n6-PARES E IMPARES. \n7-VOVLER. \n8-SALIR. \n\n");
+		 printf("(1) SUMAR.\n(2) RESTAR. \n(3) MULTIPLICAR. \n(4) DIVIDIR. \n(5) RAIZ CUADRADA. \n(6) VOLVER. \n(7) SALIR. \n\n");
 		 printf ("Seleccione una OPERACION: ");
 			 scanf ("%i",&p);
 
@@ -78,9 +83,8 @@ void MENU_BASICA(){
 			case 3: multiplicar();break;
 			case 4: dividir();break;
 			case 5: raiz();break;
-			case 6:	pares();break;
-			case 7: MENU_PRINCIPAL();break;
-			case 8: SALIR();break;
+			case 6: MENU_PRINCIPAL();break;
+			case 7: SALIR();break;
 			default: printf("La opcion elegida es INCORRECTA.\n\n");
 		}
 		Sleep (1000);
@@ -93,14 +97,14 @@ void MENU_AREAS(){
 	int p;
 	
 	system ("cls");
-	printf("1-AREA DEL TRIANGULO. \n2-AREA DEL RECTANGULO. \n3-VOVLER. \n4-SALIR. \n\n");
+	printf("(1) AREA DEL TRIANGULO. \n(2) AREA DEL RECTANGULO. \n(3) VOVLER. \n(4) SALIR. \n\n");
 	printf ("Seleccione una OPERACION: ");
 		scanf ("%i",&p);
 		
 	switch (p){
 		case 1: area_triangulo();break;
 		case 2: area_rectangulo();break;
-		case 3: MENU_BASICA();break;
+		case 3: MENU_PRINCIPAL();break;
 		case 4: SALIR();break;
 		default: printf("La opcion elegida es INCORRECTA.\n\n");
 	}
@@ -109,18 +113,20 @@ void MENU_AREAS(){
 }
 void MENU_APUNTES(){
 
+	//MENU APUNTES
 	int p;
 	
 	system ("cls");
 	
-	printf("1-TABLAS DE MULTIPLICAR. \n3-VOVLER. \n4-SALIR. \n\n");
+	printf("(1)TABLAS DE MULTIPLICAR. \n(2)NUMEROS PARES \n(3)VOVLER. \n(4)SALIR. \n\n");
 	printf ("Seleccione una OPERACION: ");
 		scanf ("%i",&p);
 	
 	switch (p){
 		case 1: tablas_de_multiplicar();break;
-		case 2: MENU_APUNTES();break;
-		case 3: SALIR();break;
+		case 2:	pares();break;
+		case 3: MENU_PRINCIPAL();break; 
+		case 4: SALIR();break;
 		default: printf("La opcion elegida es INCORRECTA.\n\n");
 	}
 	Sleep (1000);
@@ -164,7 +170,7 @@ void sumar(){
 		comprobacion();
 	
 	}while (seguir != 'n');
-	return 0;
+	return MENU_BASICA();
 }
 void restar(){	
 
@@ -187,7 +193,7 @@ void restar(){
 		comprobacion();
 		
 	}while (seguir != 'n');
-	return 0;
+	return MENU_BASICA();
 }
 void multiplicar(){	
 
@@ -210,7 +216,7 @@ void multiplicar(){
 		comprobacion();
 	
 	}while (seguir != 'n');
-	return 0;	
+	return MENU_BASICA();	
 }
 void dividir(){
 	
@@ -233,7 +239,7 @@ void dividir(){
 		comprobacion();
 	
 	}while (seguir != 'n');
-	return 0;
+	return MENU_BASICA();
 }
 void raiz(){
 	
@@ -251,11 +257,11 @@ void raiz(){
 		comprobacion();
 	
 	}while (seguir != 'n');
-	return 0;
+	return MENU_BASICA();
 }
 void comprobacion(){ 
 
-	// COMPROBACION PARA SEGUIR CON LA OPERACION
+	// COMPROBACION PARA SEGUIR CON LAS OPERACIONES BASICAS
 	
 	char seguir,p;
 	do{
@@ -273,7 +279,7 @@ void comprobacion(){
 }
 void comprobacion_area(){
 	
-	// COMPROBACION PARA SEGUIR CON LA OPERACION
+	// COMPROBACION PARA SEGUIR CON LAS OPERACIONES DE AREA
 		
 	char seguir,p;
 	do{
@@ -289,6 +295,24 @@ void comprobacion_area(){
 	Sleep (100);
 	return MENU_AREAS();
 }
+void comprobacion_apuntes(){
+	
+	// COMPROBACION PARA SEGUIR CON LAS OPERACIONES DE APUNTES
+		
+	char seguir,p;
+	do{
+		printf ("\nQuieres hacer otra operacion(s/n): ");
+			fflush( stdin );
+			scanf ("%c",&seguir);
+	
+			if(seguir == 's'){
+		
+				return 0;	
+			}
+	}while (seguir != 'n' );
+	Sleep (100);
+	return MENU_APUNTES();
+}
 void pares(){
 	
 	//NUMERO PARES
@@ -303,17 +327,18 @@ void pares(){
 		y = x % 2;
 	
 			if (y == 0){
-				printf ("\nEl numero introducido es PAR, %i. \n\n",y);
+				printf ("\nEl numero introducido es PAR. \n\n");
 			}
 			else {
-				printf ("\nEl numero introducido es IMPAR, %i. \n\n",y);
+				printf ("\nEl numero introducido es IMPAR. \n\n");
 			}
-		comprobacion();
+		comprobacion_apuntes();
 	}while(seguir != 'n');	
-		return 0;
+		return MENU_APUNTES();
 }
 void tablas_de_multiplicar(){
 	
+	//TABLAS DE MULTIPLICAR
 	int x,r, i;
 	char seguir;
 	
@@ -328,15 +353,18 @@ void tablas_de_multiplicar(){
 		printf ("\n%i * %i = %i\n",x,i,r);	
 		}
 		
-		comprobacion();
+		comprobacion_apuntes();
 		
 	}while(seguir != 'n');
+	return MENU_APUNTES();
 }	
 void area_triangulo(){
 		
+	//AREA DEL TRIANGULO
 	int base,altura,res;
 	
-	printf("Introduce la base: ");
+	printf("\n\tAREA DEL TRIANGULO");
+	printf("\nIntroduce la base: ");
 		scanf("%i", &base);
 	
 	printf("Introduce la altura: ");
@@ -350,9 +378,12 @@ void area_triangulo(){
 	return 0;
 }
 void area_rectangulo(){
+	
+	//AREA DEL RECTANGULO
 	int base1,base2,res;
 	
-	printf("Introduce la PRIMERA base: ");
+	printf("\n\tAREA DEL RECTANGULO");
+	printf("\nIntroduce la PRIMERA base: ");
 		scanf("%i", &base1);
 	
 	printf("Introduce la SEGUNDA base: ");
@@ -366,7 +397,13 @@ void area_rectangulo(){
 	return 0;
 }
 
+void console(){
 	
+	
+	system("COLOR 02");
+	
+	
+}
 	
 	
 	
